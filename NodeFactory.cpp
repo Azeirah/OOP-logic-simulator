@@ -16,19 +16,19 @@ NodeFactory::~NodeFactory() {
 	// TODO Auto-generated destructor stub
 }
 
-void NodeFactory::assign(string name, Node node) {
-    map<string, Node> factoryMap = getMap();
+void NodeFactory::assign(std::string name, Node *node) {
+    std::map<std::string, Node*> factoryMap = getMap();
 
     factoryMap[name] = node;
 }
 
-Node NodeFactory::get(string name) {
-    map<string, Node> factoryMap = getMap();
+Node* NodeFactory::get(std::string name) {
+    std::map<std::string, Node*> factoryMap = getMap();
     return factoryMap[name];
 }
 
-map<string, Node> NodeFactory::getMap() {
-    static map<string, Node> factoryMap;
+std::map<std::string, Node*> NodeFactory::getMap() {
+    static std::map<std::string, Node*> factoryMap;
 
     return factoryMap;
 }

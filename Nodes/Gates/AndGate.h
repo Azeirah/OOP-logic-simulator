@@ -15,6 +15,8 @@ class AndGate: public LogicGate {
 public:
 	AndGate();
 	virtual ~AndGate();
+private:
+    static AndGate self_AndGate;
 };
 
 #endif /* ANDGATE_H_ */

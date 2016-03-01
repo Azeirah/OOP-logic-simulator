@@ -7,13 +7,11 @@
 #include "../../NodeFactory.h"
 #include "AndGate.h"
 
-std::cout << "YO MAN IK DOE IETS" << endl;
-
-NodeFactory::assign("AND", AndGate{});
+AndGate AndGate::self_AndGate;
 
 AndGate::AndGate() {
 	// TODO Auto-generated constructor stub
-    std::cout << "Ik ben een nieuwe and gate." << endl;
+    NodeFactory::assign("AND", this);
 }
 
 AndGate::~AndGate() {

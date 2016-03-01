@@ -8,8 +8,6 @@
 #ifndef NODEFACTORY_H_
 #define NODEFACTORY_H_
 
-using namespace std;
-
 #include "Node.h"
 #include <string>
 #include <map>
@@ -18,9 +16,9 @@ class NodeFactory {
 public:
 	NodeFactory();
 	virtual ~NodeFactory();
-    static void assign(string name, Node node);
-    static Node get(string name);
-    static map<string, Node> getMap();
+    static void assign(std::string name, Node *node);
+    static Node* get(std::string name);
+    static std::map<std::string, Node*> getMap();
 };
 
 #endif /* NODEFACTORY_H_ */
