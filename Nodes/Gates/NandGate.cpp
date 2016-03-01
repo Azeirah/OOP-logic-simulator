@@ -1,0 +1,18 @@
+/*
+ * NandGate.cpp
+ *
+ *  Created on: Mar 1, 2016
+ *      Author: brian
+ */
+
+#include "NandGate.h"
+
+NandGate::NandGate() {
+	// TODO Auto-generated constructor stub
+
+}
+
+NandGate::~NandGate() {
+	// TODO Auto-generated destructor stub
+}
+
