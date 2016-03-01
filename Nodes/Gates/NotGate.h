@@ -8,6 +8,8 @@
 #ifndef NOTGATE_H_
 #define NOTGATE_H_
 
+#include "../LogicGate.h"
+
 class NotGate: public LogicGate {
 public:
 	NotGate();

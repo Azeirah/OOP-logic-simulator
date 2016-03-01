@@ -8,7 +8,7 @@
 #ifndef LOGICGATE_H_
 #define LOGICGATE_H_
 
-#include "Node.h"
+#include "../Node.h"
 
 class LogicGate: public Node {
 public:

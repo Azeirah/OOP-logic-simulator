@@ -8,6 +8,8 @@
 #ifndef ANDGATE_H_
 #define ANDGATE_H_
 
+#include "../LogicGate.h"
+
 class AndGate: public LogicGate {
 public:
 	AndGate();

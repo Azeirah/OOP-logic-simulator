@@ -8,7 +8,7 @@
 #ifndef STARTNODE_H_
 #define STARTNODE_H_
 
-#include "Node.h"
+#include "../Node.h"
 
 class StartNode: public Node {
 public:

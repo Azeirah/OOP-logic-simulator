@@ -8,7 +8,7 @@
 #ifndef CIRCUIT_H_
 #define CIRCUIT_H_
 
-#include "Node.h"
+#include "../Node.h"
 
 class Circuit: public Node {
 public:

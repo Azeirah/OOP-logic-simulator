@@ -8,6 +8,8 @@
 #ifndef NORGATE_H_
 #define NORGATE_H_
 
+#include "../LogicGate.h"
+
 class NorGate: public LogicGate {
 public:
 	NorGate();

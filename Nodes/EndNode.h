@@ -8,7 +8,7 @@
 #ifndef ENDNODE_H_
 #define ENDNODE_H_
 
-#include "Node.h"
+#include "../Node.h"
 
 class EndNode: public Node {
 public:

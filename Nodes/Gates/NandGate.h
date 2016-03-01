@@ -8,6 +8,8 @@
 #ifndef NANDGATE_H_
 #define NANDGATE_H_
 
+#include "../LogicGate.h"
+
 class NandGate: public LogicGate {
 public:
 	NandGate();

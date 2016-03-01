@@ -8,6 +8,8 @@
 #ifndef XORGATE_H_
 #define XORGATE_H_
 
+#include "../LogicGate.h"
+
 class XorGate: public LogicGate {
 public:
 	XorGate();
