@@ -14,6 +14,7 @@ class NotGate: public LogicGate {
 public:
 	NotGate();
 	virtual ~NotGate();
+	void printInfo();
 };
 
 #endif /* NOTGATE_H_ */

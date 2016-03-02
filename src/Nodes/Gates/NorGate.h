@@ -14,6 +14,7 @@ class NorGate: public LogicGate {
 public:
 	NorGate();
 	virtual ~NorGate();
+	void printInfo();
 };
 
 #endif /* NORGATE_H_ */

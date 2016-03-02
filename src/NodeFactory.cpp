@@ -7,6 +7,9 @@
 
 #include "NodeFactory.h"
 
+#include <iostream>
+using namespace std;
+
 NodeFactory::NodeFactory() {
 	// TODO Auto-generated constructor stub
 
@@ -18,7 +21,7 @@ NodeFactory::~NodeFactory() {
 
 void NodeFactory::assign(std::string name, Node *node) {
     std::map<std::string, Node*> factoryMap = getMap();
-
+    cout << "Assigned" << node << " to string " << name << endl;
     factoryMap[name] = node;
 }
 

@@ -7,6 +7,9 @@
 #include "../../NodeFactory.h"
 #include "AndGate.h"
 
+  #include <iostream>
+using namespace std;
+
 AndGate AndGate::self_AndGate;
 
 AndGate::AndGate() {
@@ -16,5 +19,9 @@ AndGate::AndGate() {
 
 AndGate::~AndGate() {
 	// TODO Auto-generated destructor stub
+}
+
+void AndGate::printInfo() {
+	cout << "I am an ANDGate." << endl;
 }
 

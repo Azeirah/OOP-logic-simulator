@@ -9,12 +9,12 @@
 #define ANDGATE_H_
 
 #include "../LogicGate.h"
-#include <iostream>
 
 class AndGate: public LogicGate {
 public:
 	AndGate();
 	virtual ~AndGate();
+	void printInfo();
 private:
     static AndGate self_AndGate;
 };

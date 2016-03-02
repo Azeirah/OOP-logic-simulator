@@ -7,6 +7,9 @@
 
 #include "NotGate.h"
 
+  #include <iostream>
+using namespace std;
+
 NotGate::NotGate() {
 	// TODO Auto-generated constructor stub
 
@@ -16,3 +19,7 @@ NotGate::~NotGate() {
 	// TODO Auto-generated destructor stub
 }
 
+
+void NotGate::printInfo() {
+	cout << "I am an ANDGate." << endl;
+}

@@ -1,18 +1,21 @@
 /*
- * NandGate.cpp
+ * NorGate.cpp
  *
  *  Created on: Mar 1, 2016
  *      Author: brian
  */
 
-#include "NandGate.h"
+#include "NorGate.h"
 
-NandGate::NandGate() {
+  #include <iostream>
+using namespace std;
+
+NorGate::NorGate() {
 	// TODO Auto-generated constructor stub
 
 }
 
-NandGate::~NandGate() {
+NorGate::~NorGate() {
 	// TODO Auto-generated destructor stub
 }
 

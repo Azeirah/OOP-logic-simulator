@@ -7,6 +7,9 @@
 
 #include "Node.h"
 
+ #include <iostream>
+using namespace std;
+
 Node::Node() {
 	// TODO Auto-generated constructor stub
 

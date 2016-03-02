@@ -14,6 +14,7 @@ class NandGate: public LogicGate {
 public:
 	NandGate();
 	virtual ~NandGate();
+	void printInfo();
 };
 
 #endif /* NANDGATE_H_ */

@@ -14,6 +14,7 @@ class XorGate: public LogicGate {
 public:
 	XorGate();
 	virtual ~XorGate();
+	void printInfo();
 };
 
 #endif /* XORGATE_H_ */
