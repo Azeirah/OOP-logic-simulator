@@ -2,7 +2,7 @@
  * Reader.cpp
  *
  *  Created on: Mar 1, 2016
- *      Author: brian
+ *      Author: brian / Jorg
  */
 
 #include "Reader.h"
@@ -12,18 +12,18 @@ Reader::Reader(string fileName) {
 }
 
 Reader::~Reader() {
-        	infile.close();
+    infile.close();
 }
 
 string Reader::nextLine() {
-	string STRING;
+	string output_string;
 
 	    if(!infile.eof()) // To get you all the lines.
         {
-	        getline(infile,STRING); // Saves the line in STRING.
-	        return STRING;
+	        getline(infile,output_string); // Saves the line in output_string.
+	        return output_string;
         } else {
         	infile.close();
-        	return NULL;
+        	return string(); //empty string
         }
 }
