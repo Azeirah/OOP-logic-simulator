@@ -8,10 +8,19 @@
 #ifndef READER_H_
 #define READER_H_
 
+#include <iostream>
+#include <fstream>
+#include <string>
+ #include <fstream>
+
+using namespace std;
+
 class Reader {
 public:
-	Reader();
+	Reader(string fileName);
 	virtual ~Reader();
+	string nextLine();
+		ifstream infile;
 };
 
 #endif /* READER_H_ */

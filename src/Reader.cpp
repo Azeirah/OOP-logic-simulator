@@ -7,12 +7,23 @@
 
 #include "Reader.h"
 
-Reader::Reader() {
-	// TODO Auto-generated constructor stub
-
+Reader::Reader(string fileName) {
+	infile.open (fileName.c_str());
 }
 
 Reader::~Reader() {
 	// TODO Auto-generated destructor stub
 }
 
+string Reader::nextLine() {
+	string STRING;
+
+	    if(!infile.eof()) // To get you all the lines.
+        {
+	        getline(infile,STRING); // Saves the line in STRING.
+	        return STRING;
+        } else {
+        	infile.close();
+        	return NULL;
+        }
+}
