@@ -12,7 +12,7 @@ Reader::Reader(string fileName) {
 }
 
 Reader::~Reader() {
-	// TODO Auto-generated destructor stub
+        	infile.close();
 }
 
 string Reader::nextLine() {
