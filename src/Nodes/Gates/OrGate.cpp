@@ -6,9 +6,13 @@
  */
 
 #include "OrGate.h"
-
-  #include <iostream>
 using namespace std;
+
+OrGate OrGate::instance("OR");
+
+OrGate::OrGate( const char* szArg ) : LogicGate(szArg) {
+
+}
 
 OrGate::OrGate() {
 	// TODO Auto-generated constructor stub
@@ -19,7 +23,6 @@ OrGate::~OrGate() {
 	// TODO Auto-generated destructor stub
 }
 
-
-void OrGate::printInfo() {
-	cout << "I am an ANDGate." << endl;
+Node* OrGate::clone() {
+    return new OrGate();
 }

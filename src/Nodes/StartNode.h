@@ -14,6 +14,7 @@ class StartNode: public Node {
 public:
 	StartNode();
 	virtual ~StartNode();
+    virtual Node* clone();
 };
 
 #endif /* STARTNODE_H_ */

@@ -11,10 +11,14 @@
 #include "../LogicGate.h"
 
 class NorGate: public LogicGate {
+private:
+    NorGate( const char* );
 public:
 	NorGate();
 	virtual ~NorGate();
-	void printInfo();
+    virtual Node* clone();
+private:
+    static NorGate instance;
 };
 
 #endif /* NORGATE_H_ */

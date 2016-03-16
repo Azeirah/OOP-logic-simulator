@@ -7,11 +7,15 @@
 
 #include "NandGate.h"
 
-  #include <iostream>
+#include <iostream>
 using namespace std;
 
+NandGate NandGate::instance("NAND");
+
+NandGate::NandGate(const char* szArg) : LogicGate(szArg) {
+}
+
 NandGate::NandGate() {
-	// TODO Auto-generated constructor stub
 
 }
 
@@ -19,8 +23,6 @@ NandGate::~NandGate() {
 	// TODO Auto-generated destructor stub
 }
 
-
-void NandGate::printInfo() {
-	cout << "I am an NANDGate." << endl;
+Node* NandGate::clone() {
+    return new NandGate();
 }
-

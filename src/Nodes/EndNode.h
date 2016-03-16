@@ -14,6 +14,7 @@ class EndNode: public Node {
 public:
 	EndNode();
 	virtual ~EndNode();
+    virtual Node* clone();
 };
 
 #endif /* ENDNODE_H_ */
