@@ -11,9 +11,16 @@
 #include "../LogicGate.h"
 
 class OrGate: public LogicGate {
+private:
+    OrGate( const char* );
+
 public:
 	OrGate();
 	virtual ~OrGate();
+    virtual Node* clone();
+
+private:
+    static OrGate instance;
 };
 
 #endif /* ORGATE_H_ */

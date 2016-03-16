@@ -11,9 +11,12 @@
 #include "../Node.h"
 
 class LogicGate : public Node {
+protected:
+    LogicGate(const char*);
 public:
 	LogicGate();
 	virtual ~LogicGate();
+    virtual Node* clone();
 };
 
 #endif /* LOGICGATE_H_ */

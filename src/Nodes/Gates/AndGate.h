@@ -10,10 +10,18 @@
 
 #include "../LogicGate.h"
 
+
 class AndGate : public LogicGate {
+private:
+    AndGate( const char* );
+
 public:
 	AndGate();
 	virtual ~AndGate();
+    virtual Node* clone();
+
+private:
+    static AndGate instance;
 };
 
 #endif /* ANDGATE_H_ */

@@ -18,14 +18,18 @@ NodeFactory::~NodeFactory() {
 	// TODO Auto-generated destructor stub
 }
 
-void NodeFactory::assign(std::string name, Node *node) {
+void NodeFactory::assign(std::string name, Node* node) {
     std::map<std::string, Node*>& factoryMap = getMap();
     factoryMap[name] = node;
 }
 
-Node* NodeFactory::get(std::string name) {
+void NodeFactory::get(std::string name, Node*& node) {
     std::map<std::string, Node*>& factoryMap = getMap();
-    return factoryMap[name];
+    std::map<std::string, Node*>::iterator iFind = factoryMap.find(name);
+    if ( iFind == factoryMap.end() )
+        node = nullptr;
+    else
+        node = factoryMap[name]->clone();
 }
 
 std::map<std::string, Node*>& NodeFactory::getMap() {

@@ -10,11 +10,19 @@
 #include <iostream>
 using namespace std;
 
+NandGate NandGate::instance("NAND");
+
+NandGate::NandGate(const char* szArg) : LogicGate(szArg) {
+}
+
 NandGate::NandGate() {
-	// TODO Auto-generated constructor stub
 
 }
 
 NandGate::~NandGate() {
 	// TODO Auto-generated destructor stub
+}
+
+Node* NandGate::clone() {
+    return new NandGate();
 }

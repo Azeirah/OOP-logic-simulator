@@ -16,3 +16,6 @@ StartNode::~StartNode() {
 	// TODO Auto-generated destructor stub
 }
 
+Node* StartNode::clone() {
+    return new StartNode();
+}

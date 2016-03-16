@@ -11,9 +11,14 @@
 #include "../LogicGate.h"
 
 class NandGate: public LogicGate {
+private:
+    NandGate( const char* );
 public:
 	NandGate();
 	virtual ~NandGate();
+    virtual Node* clone();
+private:
+    static NandGate instance;
 };
 
 #endif /* NANDGATE_H_ */

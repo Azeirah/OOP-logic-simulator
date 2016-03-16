@@ -11,9 +11,14 @@
 #include "../LogicGate.h"
 
 class XorGate: public LogicGate {
+private:
+    XorGate( const char* );
 public:
 	XorGate();
 	virtual ~XorGate();
+    virtual Node* clone();
+private:
+    static XorGate instance;
 };
 
 #endif /* XORGATE_H_ */
