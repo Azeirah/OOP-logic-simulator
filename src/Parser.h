@@ -13,6 +13,7 @@
 #include <iostream>
 #include "Reader.h"
 #include <map>
+#include <utility>
 
 struct nodePair{
 	string nodeName;
@@ -23,12 +24,13 @@ class Parser {
 public:
 	Parser(string filename);
 	virtual ~Parser();
-	void parseFileLines(void);
+	void parseFileLines(map<string,string> *nodes, map<string, string> *edges);
 
 private:
-	void parseLine(string inputLine);
+	struct nodePair parseLine(string inputLine);
 	struct nodePair splitLine(string inputString);
 	string removeCharsFromString(string inputString, char charToRemove);
+	bool validLine(string line);
 
 private:
 	Reader* filereader;
