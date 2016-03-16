@@ -8,6 +8,7 @@
 #ifndef PARSER_H_
 #define PARSER_H_
 
+#include <algorithm>
 #include <string>
 #include <iostream>
 #include "Reader.h"
@@ -27,6 +28,7 @@ public:
 private:
 	void parseLine(string inputLine);
 	struct nodePair splitLine(string inputString);
+	string removeCharsFromString(string inputString, char charToRemove);
 
 private:
 	Reader* filereader;
