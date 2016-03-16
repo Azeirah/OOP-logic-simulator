@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include "Reader.h"
+ #include "NodeGraphCreator.h"
 #include <map>
 
 struct nodePair{
@@ -32,6 +33,7 @@ private:
 
 private:
 	Reader* filereader;
+	NodeGraphCreator* nodeGraphCreator;
 };
 
 #endif /* PARSER_H_ */

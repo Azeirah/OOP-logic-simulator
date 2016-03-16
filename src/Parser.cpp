@@ -6,9 +6,11 @@
  */
 
 #include "Parser.h"
+#include "NodeGraphCreator.h"
 
 Parser::Parser(string filename) {
 	filereader =  new Reader(filename);
+	nodeGraphCreator = new NodeGraphCreator();
 }
 
 Parser::~Parser() {
@@ -21,6 +23,11 @@ void Parser::parseLine(string inputLine) {
 
 	cout << nodeInformation.nodeName << endl;
 	cout << nodeInformation.nodeType << endl;
+
+	nodeGraphCreator->createNode(nodeInformation.nodeName, nodeInformation.nodeType);
+
+
+
 }
 
 struct nodePair Parser::splitLine(string inputString) {
@@ -58,6 +65,8 @@ void Parser::parseFileLines(void) {
 			parseLine(fileLine);
 		fileLine = filereader->nextLine();
 	}
+	//DEBUG voor Brian <3
+	nodeGraphCreator->showStoredNodes();
 
 	return;
 }
