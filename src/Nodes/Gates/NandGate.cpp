@@ -7,7 +7,7 @@
 
 #include "NandGate.h"
 
-  #include <iostream>
+#include <iostream>
 using namespace std;
 
 NandGate::NandGate() {
@@ -18,9 +18,3 @@ NandGate::NandGate() {
 NandGate::~NandGate() {
 	// TODO Auto-generated destructor stub
 }
-
-
-void NandGate::printInfo() {
-	cout << "I am an NANDGate." << endl;
-}
-

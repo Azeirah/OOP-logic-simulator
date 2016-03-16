@@ -10,7 +10,7 @@
 
 #include "../Node.h"
 
-class LogicGate: public Node {
+class LogicGate : public Node {
 public:
 	LogicGate();
 	virtual ~LogicGate();

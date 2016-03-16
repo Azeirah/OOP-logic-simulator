@@ -7,7 +7,7 @@
 
 #include "Node.h"
 
- #include <iostream>
+#include <iostream>
 using namespace std;
 
 Node::Node() {
@@ -18,4 +18,3 @@ Node::Node() {
 Node::~Node() {
 	// TODO Auto-generated destructor stub
 }
-

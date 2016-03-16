@@ -6,21 +6,13 @@
  */
 
 #include "XorGate.h"
-
-  #include <iostream>
+#include <iostream>
 using namespace std;
 
 XorGate::XorGate() {
 	// TODO Auto-generated constructor stub
-
 }
 
 XorGate::~XorGate() {
 	// TODO Auto-generated destructor stub
 }
-
-
-void XorGate::printInfo() {
-	cout << "I am an ANDGate." << endl;
-}
-

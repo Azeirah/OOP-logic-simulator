@@ -14,7 +14,6 @@ class OrGate: public LogicGate {
 public:
 	OrGate();
 	virtual ~OrGate();
-	void printInfo();
 };
 
 #endif /* ORGATE_H_ */

@@ -7,7 +7,6 @@
 
 #include "NodeFactory.h"
 
-#include <iostream>
 using namespace std;
 
 NodeFactory::NodeFactory() {
@@ -20,17 +19,16 @@ NodeFactory::~NodeFactory() {
 }
 
 void NodeFactory::assign(std::string name, Node *node) {
-    std::map<std::string, Node*> factoryMap = getMap();
-    cout << "Assigned" << node << " to string " << name << endl;
+    std::map<std::string, Node*>& factoryMap = getMap();
     factoryMap[name] = node;
 }
 
 Node* NodeFactory::get(std::string name) {
-    std::map<std::string, Node*> factoryMap = getMap();
+    std::map<std::string, Node*>& factoryMap = getMap();
     return factoryMap[name];
 }
 
-std::map<std::string, Node*> NodeFactory::getMap() {
+std::map<std::string, Node*>& NodeFactory::getMap() {
     static std::map<std::string, Node*> factoryMap;
 
     return factoryMap;

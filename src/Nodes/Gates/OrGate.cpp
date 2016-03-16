@@ -18,8 +18,3 @@ OrGate::OrGate() {
 OrGate::~OrGate() {
 	// TODO Auto-generated destructor stub
 }
-
-
-void OrGate::printInfo() {
-	cout << "I am an ANDGate." << endl;
-}
