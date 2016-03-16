@@ -18,9 +18,14 @@ NodeGraphCreator::~NodeGraphCreator() {
 }
 
 void NodeGraphCreator::createNode(std::string name, std::string type) {
-	//Node* node = ;
-	//cout << name << " type met adres " << &node << endl;
-	nodeMap[name] = NodeFactory::get(type);
+	Node* node;
+	NodeFactory::get(type, node);
+	cout << type << " type met adres " << node << endl;
+	nodeMap[name] = node;
+}
+
+void NodeGraphCreator::createLink(string origin, string destinations[]) {
+	
 }
 
 void NodeGraphCreator::showStoredNodes() {
