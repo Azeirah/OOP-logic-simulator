@@ -9,7 +9,7 @@ using namespace std;
 int main (int argc, char* argv[]) {
 
 	map<string,string> nodes;
-	map<string, string> edges;
+	map<string, vector<string> > edges;
     Parser test("/home/jazula/Documents/circuit1.txt");
     test.parseFileLines(&nodes, &edges);
 
@@ -17,11 +17,13 @@ int main (int argc, char* argv[]) {
     	cout << it->first << "   " << it->second << endl;
     }
     cout << "\n \nEDGES MOTHERFUCKER!!!!!!! \n\n";
-    for (map<string, string>::iterator it= edges.begin(); it != edges.end(); ++it){
-    	cout << it->first << "   " << it->second << endl;
-    }
-
-   	
+    for (map<string, vector<string> >::iterator iter= edges.begin(); iter != edges.end(); ++iter){
+    	cout << iter->first << "   " << endl << "\t"; 
+    	for (int i = 0 ; i < iter->second.size() ; i++) {
+    		cout << iter->second[i] << "\t";
+    	}
+    	cout << endl;
+    }   	
 
 	return -1;
 }

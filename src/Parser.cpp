@@ -19,9 +19,6 @@ struct nodePair Parser::parseLine(string inputLine) {
 
 	nodeInformation = splitLine(inputLine);
 
-	// cout << nodeInformation.nodeName << endl;
-	// cout << nodeInformation.nodeType << endl;
-
 	return nodeInformation;
 }
 
@@ -50,11 +47,16 @@ string Parser::removeCharsFromString(string inputString, char charToRemove) {
 	return returnString;
 }
 
-void Parser::parseFileLines(map<string,string> *nodes, map<string, string> *edges) {
+void Parser::parseFileLines(map<string,string> *nodes, map<string, vector<string> > *edges) {
 	string fileLine;
 	nodePair nodeStrings;
-	pair<map<string,string>::iterator,bool> ret_value;
+	pair<map<string,string>::iterator, bool> ret_value;
 	bool at_nodes = true;
+	vector<string> testVector;
+
+	testVector.push_back("TEST");
+	testVector.push_back("WORKS");
+
 
 	fileLine = filereader->nextLine();
 
@@ -65,11 +67,12 @@ void Parser::parseFileLines(map<string,string> *nodes, map<string, string> *edge
 			if(at_nodes){
 				ret_value = nodes->insert(pair<string, string>(nodeStrings.nodeName, nodeStrings.nodeType));
 				at_nodes = ret_value.second;
-				if(!at_nodes)
-					edges->insert(pair<string, string>(nodeStrings.nodeName, nodeStrings.nodeType));
+				if(!at_nodes){
+					edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType))); 
+				}
 			}
 			else{
-				edges->insert(pair<string, string>(nodeStrings.nodeName, nodeStrings.nodeType));
+				edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType)));
 			}
 		}
 		fileLine = filereader->nextLine();
@@ -86,5 +89,20 @@ bool Parser::validLine(string fileLine) {
 		return false;
 }
 
+vector<string> Parser::splitStringOn(char splitChar, string inputString){
+	size_t pos = 0;
+	string temp_inputString = inputString;
+	string temp_token;
+	vector<string> stringVector;
 
+	while ((pos = temp_inputString.find(splitChar)) != string::npos) {
+		temp_token = temp_inputString.substr(0, pos);
+		stringVector.push_back(temp_token);
+		temp_inputString.erase(0, pos + 1);
+	}
+	if(!temp_inputString.empty()){
+		stringVector.push_back(temp_inputString);
+	}
+	return stringVector;
+}
 

@@ -14,6 +14,7 @@
 #include "Reader.h"
 #include <map>
 #include <utility>
+#include <vector>
 
 struct nodePair{
 	string nodeName;
@@ -24,13 +25,15 @@ class Parser {
 public:
 	Parser(string filename);
 	virtual ~Parser();
-	void parseFileLines(map<string,string> *nodes, map<string, string> *edges);
+	void parseFileLines(map<string,string> *nodes, map<string, vector<string> > *edges);
+	vector<string> splitStringOn(char splitChar, string inputString);
 
 private:
 	struct nodePair parseLine(string inputLine);
 	struct nodePair splitLine(string inputString);
 	string removeCharsFromString(string inputString, char charToRemove);
 	bool validLine(string line);
+
 
 private:
 	Reader* filereader;
