@@ -25,7 +25,21 @@ void NodeGraphCreator::createNode(std::string name, std::string type) {
 }
 
 void NodeGraphCreator::createLink(string origin, string destinations[]) {
-	
+
+
+}
+
+void NodeGraphCreator::parseParserOutput(map<string,string> *nodes, map<string, string> *edges) {
+	//Nodes
+	for (std::map<string, string>::iterator it = nodes->begin(); it != nodes->end(); it++) {
+		createNode(it->first,it->second);
+	}
+
+	//Edges
+	for (std::map<string, string>::iterator it = edges->begin(); it != edges->end(); it++) {
+		createLink(it->first,it->second);
+	}
+
 }
 
 void NodeGraphCreator::showStoredNodes() {

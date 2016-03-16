@@ -13,10 +13,14 @@ int main (int argc, char* argv[]) {
 
    	if (argv[1] != NULL) {
    	Parser* testParser = new Parser(argv[1]);
-   	testParser->parseFileLines();
+   	NodeGraphCreator* nodeGraphCreator = new NodeGraphCreator();
+   	testParser->parseFileLines(&nodes, &edges);
+   		nodeGraphCreator->parseParserOutput(&nodes, &edges);
+   		nodeGraphCreator->showStoredNodes();
+
    	//Reader* mijnReader = new Reader(argv[1]);
    	//cout << mijnReader->nextLine() << endl;
    	//cout << mijnReader->nextLine() << endl;
-
+   	}
 	return -1;
 }

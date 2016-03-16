@@ -20,6 +20,9 @@ public:
 	virtual ~NodeGraphCreator();
 	void createNode(std::string name, std::string type);
 	void showStoredNodes();
+	void createLink(string origin, string destinations[]);
+	void parseParserOutput(map<string,string> *nodes, map<string, string> *edges);
+
 
 private:
 	std::map<std::string, Node*> nodeMap;

@@ -10,7 +10,6 @@
 
 Parser::Parser(string filename) {
 	filereader =  new Reader(filename);
-	nodeGraphCreator = new NodeGraphCreator();
 }
 
 Parser::~Parser() {
@@ -77,8 +76,6 @@ void Parser::parseFileLines(map<string,string> *nodes, map<string, string> *edge
 		fileLine = filereader->nextLine();
 
 	}
-	//DEBUG voor Brian <3
-	nodeGraphCreator->showStoredNodes();
 
 	return;
 }

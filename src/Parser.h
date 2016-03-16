@@ -35,7 +35,6 @@ private:
 
 private:
 	Reader* filereader;
-	NodeGraphCreator* nodeGraphCreator;
 };
 
 #endif /* PARSER_H_ */
