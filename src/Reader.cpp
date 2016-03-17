@@ -27,3 +27,12 @@ string Reader::nextLine() {
         	return string(); //empty string
         }
 }
+
+bool Reader::hasNextLine(){
+    if(!infile.eof() && infile.is_open()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}

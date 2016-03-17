@@ -20,6 +20,7 @@ public:
 	Reader(string fileName);
 	virtual ~Reader();
 	string nextLine();
+	bool hasNextLine();
 		ifstream infile;
 };
 
