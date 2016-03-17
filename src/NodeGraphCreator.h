@@ -13,6 +13,8 @@
 #include <iostream>
 using namespace std;
 #include <map>
+#include <utility>
+#include <vector>
 
 class NodeGraphCreator {
 public:
@@ -20,8 +22,8 @@ public:
 	virtual ~NodeGraphCreator();
 	void createNode(std::string name, std::string type);
 	void showStoredNodes();
-	void createLink(string origin, string destinations[]);
-	void parseParserOutput(map<string,string> *nodes, map<string, string> *edges);
+	void createLink(string origin, vector<string> destinations);
+	void parseParserOutput(map<string,string> *nodes, map<string, vector<string> > *edges);
 
 
 private:

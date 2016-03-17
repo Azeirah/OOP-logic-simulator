@@ -21,9 +21,9 @@ int main (int argc, char* argv[]) {
    		nodeGraphCreator->showStoredNodes();
 	}
 
-    for (map<string, string>::iterator it= nodes.begin(); it != nodes.end(); ++it){
-    	cout << it->first << "   " << it->second << endl;
-    }
+   // for (map<string, string>::iterator it= nodes.begin(); it != nodes.end(); ++it){
+   // 	cout << it->first << "   " << it->second << endl;
+   // }
     cout << "\n \nEDGES MOTHERFUCKER!!!!!!! \n\n";
     for (map<string, vector<string> >::iterator iter= edges.begin(); iter != edges.end(); ++iter){
     	cout << iter->first << "   " << endl << "\t"; 
