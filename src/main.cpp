@@ -9,7 +9,9 @@ using namespace std;
 int main (int argc, char* argv[]) {
 
 	map<string,string> nodes;
-	map<string, string> edges;
+	map<string, vector<string> > edges;
+    Parser test("/home/jazula/Documents/circuit1.txt");
+    test.parseFileLines(&nodes, &edges);
 
    	if (argv[1] != NULL) {
    	Parser* testParser = new Parser(argv[1]);
@@ -17,10 +19,19 @@ int main (int argc, char* argv[]) {
    	testParser->parseFileLines(&nodes, &edges);
    		nodeGraphCreator->parseParserOutput(&nodes, &edges);
    		nodeGraphCreator->showStoredNodes();
+	}
 
-   	//Reader* mijnReader = new Reader(argv[1]);
-   	//cout << mijnReader->nextLine() << endl;
-   	//cout << mijnReader->nextLine() << endl;
-   	}
+    for (map<string, string>::iterator it= nodes.begin(); it != nodes.end(); ++it){
+    	cout << it->first << "   " << it->second << endl;
+    }
+    cout << "\n \nEDGES MOTHERFUCKER!!!!!!! \n\n";
+    for (map<string, vector<string> >::iterator iter= edges.begin(); iter != edges.end(); ++iter){
+    	cout << iter->first << "   " << endl << "\t"; 
+    	for (int i = 0 ; i < iter->second.size() ; i++) {
+    		cout << iter->second[i] << "\t";
+    	}
+    	cout << endl;
+    }   	
+
 	return -1;
 }
