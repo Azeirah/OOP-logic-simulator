@@ -15,7 +15,7 @@ int main (int argc, char* argv[]) {
    	Parser* testParser = new Parser(argv[1]);
    	NodeGraphCreator* nodeGraphCreator = new NodeGraphCreator();
    	testParser->parseFileLines(&nodes, &edges);
-   		nodeGraphCreator->parseParserOutput(&nodes, &edges);
+   		std::map<std::string, Node*> nodeMap = nodeGraphCreator->parseParserOutput(&nodes, &edges);
    		nodeGraphCreator->showStoredNodes();
 	}
 
