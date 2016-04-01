@@ -18,10 +18,10 @@ CC=g++
 # this makes caching possible (only recompile changed files)
 # -Wall and -Wextra give extra warnings..
 # use C++14 standard, gives access to some nice additional features
-CC_FLAGS = -g -Wall -Wextra -std=c++11
+CC_FLAGS = `pkg-config libgvc --cflags` -g -Wall -Wextra -std=c++11
 # Linker flags
 # -g is debug symbols
-LD_FLAGS = -g
+LD_FLAGS = `pkg-config libgvc --libs` -g
 # All source files
 # Name of resulting executable
 EXEC = oop.bin
@@ -31,7 +31,7 @@ SOURCES = $(wildcard src/*.cpp src/Nodes/Gates/*.cpp src/Nodes/*.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # All library dependencies (none for now)
-LIBS =
+LIBS = 
 
 all: $(OBJECTS)
 	$(CC) $(CC_FLAGS) $(LD_FLAGS) $(OBJECTS) $(LIBS) -o $(EXEC)

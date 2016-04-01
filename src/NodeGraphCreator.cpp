@@ -8,6 +8,8 @@
 #include "NodeGraphCreator.h"
 #include "Node.h"
 #include "NodeFactory.h"
+#include <gvc.h>
+#define NO_LAYOUT_OR_RENDERING
 
 NodeGraphCreator::NodeGraphCreator() {
 	// TODO Auto-generated constructor stub
@@ -66,4 +68,38 @@ void NodeGraphCreator::showStoredNodes() {
 	for (std::map<std::string, Node*>::iterator it = nodeMap.begin(); it != nodeMap.end(); it++) {
 		cout << it->first << " op adres " << it->second << endl;
 	}
+
+	Agraph_t *g;
+    Agnode_t *n, *m;
+    Agedge_t *e;
+    GVC_t *gvc;
+
+    /* set up a graphviz context */
+    gvc = gvContext();
+
+    /* parse command line args - minimally argv[0] sets layout engine */
+    //gvParseArgs(gvc, argc, argv);
+
+    /* Create a simple digraph */
+    g = agopen("g", Agdirected, 0);
+    n = agnode(g, "n", 1);
+    m = agnode(g, "m", 1);
+    e = agedge(g, n, m, 0, 1);
+
+    /* Set an attribute - in this case one that affects the visible rendering */
+    agsafeset(n, "color", "red", "");
+
+    /* Compute a layout using layout engine from command line args */
+    gvLayoutJobs(gvc, g);
+
+    /* Write the graph according to -T and -o options */
+    gvRenderJobs(gvc, g);
+
+    /* Free layout data */
+    gvFreeLayout(gvc, g);
+
+    /* Free graph structures */
+    agclose(g);
+
+
 }
