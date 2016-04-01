@@ -12,6 +12,7 @@
 
 # compiler = g++
 CC=g++
+#CC=clang
 # compiler flags
 # -g is debug symbols
 # this makes caching possible (only recompile changed files)
