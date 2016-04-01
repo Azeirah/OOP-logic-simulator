@@ -26,3 +26,7 @@ NandGate::~NandGate() {
 Node* NandGate::clone() {
     return new NandGate();
 }
+
+bool NandGate::backPropagate() {
+    return !(inputs[0]->backPropagate() && inputs[1]->backPropagate());
+}

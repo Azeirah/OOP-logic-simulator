@@ -19,9 +19,15 @@ public:
 	InputHighGate();
 	virtual ~InputHighGate();
     virtual Node* clone();
-
+    virtual bool backPropagate();
+    
 private:
     static InputHighGate instance;
+
+private:
+	virtual bool validateInputAmount();
+	virtual bool validateOutputAmount();
+	virtual bool checkCircularDependency(int count, int maxCount, Node* node);
 };
 
 #endif /* INPUTHIGHGATE_H_ */

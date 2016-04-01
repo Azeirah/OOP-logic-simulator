@@ -23,3 +23,19 @@ ProbeGate::~ProbeGate() {
 Node* ProbeGate::clone() {
     return new ProbeGate();
 }
+
+bool ProbeGate::backPropagate() {
+    return inputs[0]->backPropagate();
+}
+
+bool ProbeGate::validateInputAmount() {
+	if(inputs.size() != 1)
+		return false;
+	return true;
+}
+
+bool ProbeGate::validateOutputAmount() {
+	if(outputs.size() > 0)
+		return false;
+	return true;
+}

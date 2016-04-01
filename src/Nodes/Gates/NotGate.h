@@ -16,8 +16,14 @@ public:
 	NotGate();
 	virtual ~NotGate();
     virtual Node* clone();
+    virtual bool backPropagate();
+
 private:
     static NotGate instance;
+
+private:
+	virtual bool validateInputAmount();
+	virtual bool validateOutputAmount();
 };
 
 #endif /* NOTGATE_H_ */

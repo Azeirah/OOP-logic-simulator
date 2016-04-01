@@ -19,3 +19,15 @@ StartNode::~StartNode() {
 Node* StartNode::clone() {
     return new StartNode();
 }
+
+bool StartNode::validateInputAmount() {
+	if(inputs.size() != 0)
+		return false;
+	return true;
+}
+
+bool StartNode::validateOutputAmount() {
+	if(outputs.size() < 1)
+		return false;
+	return true;
+}

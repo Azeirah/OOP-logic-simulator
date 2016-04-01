@@ -15,6 +15,9 @@ public:
 	StartNode();
 	virtual ~StartNode();
     virtual Node* clone();
+private:
+	virtual bool validateInputAmount();
+	virtual bool validateOutputAmount();
 };
 
 #endif /* STARTNODE_H_ */

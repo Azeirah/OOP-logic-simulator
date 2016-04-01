@@ -16,6 +16,7 @@ using namespace std;
 #define INPUT_ERROR 				1
 #define OUTPUT_ERROR 				2
 #define LOCAL_CIRCULAR_DEPENDENCY 	3
+#define CIRCULAR_DEPENDENCY 		4
 
 class Node {
 protected:
@@ -27,13 +28,16 @@ public:
     virtual Node* clone();
     void addInput(Node*);
     void addOutput(Node*);
-    int validateInputOutput();
+    virtual bool backPropagate();
+    int validateInputOutput(int maximumNodes);
+
+    vector<Node*> inputs;
+	vector<Node*> outputs;
 
 private:
-	bool validateInputAmount();
-	bool validateOutputAmount();
-	vector<Node*> inputs;
-	vector<Node*> outputs;
+	virtual bool validateInputAmount();
+	virtual bool validateOutputAmount();
+	virtual bool checkCircularDependency(int count, int maxCount, Node* node);
 };
 
 #endif /* NODE_H_ */

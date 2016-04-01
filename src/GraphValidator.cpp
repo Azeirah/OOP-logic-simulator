@@ -16,11 +16,12 @@ GraphValidator::~GraphValidator() {
 
 }
 
-GraphValidator::validateGraph(std::map<std::string, Node*> nodeMap) {
+void GraphValidator::validateGraph(std::map<std::string, Node*> nodeMap) {
 	std::map<std::string, Node*>::iterator it;
 	int ret;
 	for(it = nodeMap.begin(); it != nodeMap.end(); it++ ) {
-		ret = it->second->validateInputOutput;
+		int size = nodeMap.size();
+		ret = it->second->validateInputOutput(size);
 		switch (ret) {
 			case VALID: continue;
 				break;
@@ -31,6 +32,14 @@ GraphValidator::validateGraph(std::map<std::string, Node*> nodeMap) {
 			case LOCAL_CIRCULAR_DEPENDENCY: cout << "Error: Local circular dependency in Node " << it->first << endl;
 				try {
 					throw LOCAL_CIRCULAR_DEPENDENCY;
+				}
+				catch(int e) {
+					exit(e);
+				}
+				break;
+			case CIRCULAR_DEPENDENCY: cout << "Error: Circular dependency in Circuit " << endl;
+				try {
+					throw CIRCULAR_DEPENDENCY;
 				}
 				catch(int e) {
 					exit(e);

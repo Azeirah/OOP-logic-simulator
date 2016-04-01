@@ -23,3 +23,31 @@ InputHighGate::~InputHighGate() {
 Node* InputHighGate::clone() {
     return new InputHighGate();
 }
+
+bool InputHighGate::backPropagate() {
+    return true;
+}
+
+bool InputHighGate::validateInputAmount() {
+	if(inputs.size() != 0)
+		return false;
+	return true;
+}
+
+bool InputHighGate::validateOutputAmount() {
+	if(outputs.size() < 1)
+		return false;
+	return true;
+}
+
+bool InputHighGate::checkCircularDependency(int count, int maxCount, Node* node) {
+	bool ret;
+	if (count > maxCount)
+		return false;
+	for (auto const &output : node->outputs) {
+		ret = checkCircularDependency(count+1, maxCount, output);
+		if(!ret)
+			return false;
+	}
+	return true;
+}

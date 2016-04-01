@@ -19,3 +19,15 @@ EndNode::~EndNode() {
 Node* EndNode::clone() {
     return new EndNode();
 }
+
+bool EndNode::validateInputAmount() {
+	if(inputs.size() != 1)
+		return false;
+	return true;
+}
+
+bool EndNode::validateOutputAmount() {
+	if(outputs.size() > 0)
+		return false;
+	return true;
+}

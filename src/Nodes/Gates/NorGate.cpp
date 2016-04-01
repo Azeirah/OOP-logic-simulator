@@ -28,3 +28,7 @@ NorGate::~NorGate() {
 Node* NorGate::clone() {
     return new NorGate();
 }
+
+bool NorGate::backPropagate() {
+    return !(inputs[0]->backPropagate() || inputs[1]->backPropagate());
+}

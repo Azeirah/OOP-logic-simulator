@@ -25,3 +25,8 @@ XorGate::~XorGate() {
 Node* XorGate::clone() {
     return new XorGate();
 }
+
+bool XorGate::backPropagate() {
+    // != is logically equivalent to an XOR
+    return (inputs[0]->backPropagate() != inputs[1]->backPropagate());
+}

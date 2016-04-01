@@ -17,6 +17,7 @@ public:
 	NandGate();
 	virtual ~NandGate();
     virtual Node* clone();
+    virtual bool backPropagate();
 private:
     static NandGate instance;
 };

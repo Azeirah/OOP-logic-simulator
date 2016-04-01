@@ -20,8 +20,14 @@ public:
 	virtual ~InputLowGate();
     virtual Node* clone();
 
+    virtual bool backPropagate();
 private:
     static InputLowGate instance;
+
+private:
+	virtual bool validateInputAmount();
+	virtual bool validateOutputAmount();
+	virtual bool checkCircularDependency(int count, int maxCount, Node* node);
 };
 
 #endif /* INPUTLOWGATE_H_ */

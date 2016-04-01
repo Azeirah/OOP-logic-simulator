@@ -26,3 +26,7 @@ OrGate::~OrGate() {
 Node* OrGate::clone() {
     return new OrGate();
 }
+
+bool OrGate::backPropagate() {
+    return inputs[0]->backPropagate() || inputs[1]->backPropagate();
+}

@@ -15,6 +15,9 @@ public:
 	EndNode();
 	virtual ~EndNode();
     virtual Node* clone();
+private:
+	virtual bool validateInputAmount();
+	virtual bool validateOutputAmount();
 };
 
 #endif /* ENDNODE_H_ */
