@@ -10,6 +10,7 @@
 
 #include <string>
 using namespace std;
+#include <vector>
 
 class Node {
 protected:
@@ -19,6 +20,12 @@ public:
 	Node();
 	virtual ~Node();
     virtual Node* clone();
+    void assigNeighbours(vector<Node*> inputs, vector<Node*> outputs);
+    void addInput(Node*);
+    void addOutput(Node*);
+private:
+	vector<Node*> inputs;
+	vector<Node*> outputs;
 };
 
 #endif /* NODE_H_ */

@@ -26,8 +26,24 @@ void NodeGraphCreator::createNode(std::string name, std::string type) {
 
 void NodeGraphCreator::createLink(string origin, vector<string> destinations) {
 	cout << origin << " naar " <<  endl;
-	for (std::vector<string>::const_iterator i = destinations.begin(); i != destinations.end(); ++i)
-    std::cout << *i << ' ';
+	Node* originPointer = nodeMap[origin];
+	vector<Node*> destinationPointers;
+	vector<Node*> empty;
+	cout << origin << " met adress " << originPointer << endl;
+	for (std::vector<string>::const_iterator i = destinations.begin(); i != destinations.end(); ++i) {
+		Node* destination = nodeMap[*i];
+		if (originPointer != nullptr) {
+			originPointer->addOutput(destination);
+			cout << "Pushed " << destination << " to node " << originPointer << " ass output " << endl;
+		}
+
+		if (destination != nullptr) {
+			
+			destination->addInput(originPointer);
+			cout << "Pushed " << originPointer << " to node " << destination << " ass input " << endl;
+		}
+
+	}
 		cout << endl;
 		cout << endl;
 
