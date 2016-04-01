@@ -36,6 +36,7 @@ struct nodePair Parser::splitLine(string inputString) {
 	nodeInformation.nodeType = removeCharsFromString(nodeInformation.nodeType, ':');
 	nodeInformation.nodeType = removeCharsFromString(nodeInformation.nodeType, ';');
 	nodeInformation.nodeType = removeCharsFromString(nodeInformation.nodeType, '\t');
+	nodeInformation.nodeType = removeCharsFromString(nodeInformation.nodeType, '\r');
 
 	return nodeInformation;
 }

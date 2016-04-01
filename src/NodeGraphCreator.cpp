@@ -22,6 +22,10 @@ void NodeGraphCreator::createNode(std::string name, std::string type) {
 	NodeFactory::get(type, node);
 	cout << type << " type met adres " << node << endl;
 	nodeMap[name] = node;
+	if (type == "PROBE") {
+		cout << type << " type met adres " << node << " is een endNode" << endl;
+		endNodeMap[name] = node;
+	}
 }
 
 void NodeGraphCreator::createLink(string origin, vector<string> destinations) {
@@ -48,7 +52,7 @@ void NodeGraphCreator::createLink(string origin, vector<string> destinations) {
 
 }
 
-void NodeGraphCreator::parseParserOutput(map<string,string> *nodes, map<string, vector<string> > *edges) {
+std::map<std::string, Node*> NodeGraphCreator::parseParserOutput(map<string,string> *nodes, map<string, vector<string> > *edges) {
 	//Nodes
 	for (std::map<string, string>::iterator it = nodes->begin(); it != nodes->end(); it++) {
 		createNode(it->first,it->second);
@@ -59,6 +63,7 @@ void NodeGraphCreator::parseParserOutput(map<string,string> *nodes, map<string, 
 		createLink(it->first,it->second);
 	}
 
+	return nodeMap;
 }
 
 void NodeGraphCreator::showStoredNodes() {
@@ -67,3 +72,8 @@ void NodeGraphCreator::showStoredNodes() {
 		cout << it->first << " op adres " << it->second << endl;
 	}
 }
+
+std::map<std::string, Node*> NodeGraphCreator::getEndNodes() {
+	return endNodeMap;
+}	
+
