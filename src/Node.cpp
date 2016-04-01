@@ -23,15 +23,6 @@ Node::~Node() {
 	// TODO Auto-generated destructor stub
 }
 
-void Node::assigNeighbours(vector<Node*> inputs, vector<Node*> outputs) {
-	this->inputs = inputs;
-	this->outputs = outputs;
-
-	for (std::vector<Node*>::iterator it = outputs.begin(); it != outputs.end(); it++) {
-		cout << *it << " op adres " << endl;
-	}
-}
-
 void Node::addInput(Node* input) {
 	this->inputs.push_back(input);
 }
