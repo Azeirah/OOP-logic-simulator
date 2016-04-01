@@ -22,7 +22,9 @@ public:
     virtual Node* clone();
     void addInput(Node*);
     void addOutput(Node*);
-private:
+
+    virtual bool backPropagate();
+protected:
 	vector<Node*> inputs;
 	vector<Node*> outputs;
 };

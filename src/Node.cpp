@@ -31,7 +31,11 @@ void Node::addOutput(Node* output) {
 	this->outputs.push_back(output);
 }
 
-
 Node* Node::clone() {
     return new Node();
+}
+
+bool Node::backPropagate() {
+    cout << "generic backPropagate is called, shouldn't happen :(" << endl;
+    return false;
 }

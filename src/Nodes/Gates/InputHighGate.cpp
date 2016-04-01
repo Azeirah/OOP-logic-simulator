@@ -23,3 +23,7 @@ InputHighGate::~InputHighGate() {
 Node* InputHighGate::clone() {
     return new InputHighGate();
 }
+
+bool InputHighGate::backPropagate() {
+    return true;
+}

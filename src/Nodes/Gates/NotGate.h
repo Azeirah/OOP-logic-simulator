@@ -16,6 +16,7 @@ public:
 	NotGate();
 	virtual ~NotGate();
     virtual Node* clone();
+    virtual bool backPropagate();
 private:
     static NotGate instance;
 };

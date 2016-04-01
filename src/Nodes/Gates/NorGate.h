@@ -17,6 +17,7 @@ public:
 	NorGate();
 	virtual ~NorGate();
     virtual Node* clone();
+    virtual bool backPropagate();
 private:
     static NorGate instance;
 };

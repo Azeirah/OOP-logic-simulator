@@ -20,6 +20,7 @@ public:
 	virtual ~InputHighGate();
     virtual Node* clone();
 
+    virtual bool backPropagate();
 private:
     static InputHighGate instance;
 };

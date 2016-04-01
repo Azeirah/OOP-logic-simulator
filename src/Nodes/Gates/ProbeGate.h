@@ -19,7 +19,7 @@ public:
 	ProbeGate();
 	virtual ~ProbeGate();
     virtual Node* clone();
-
+    virtual bool backPropagate();
 private:
     static ProbeGate instance;
 };

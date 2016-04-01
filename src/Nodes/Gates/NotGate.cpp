@@ -26,3 +26,7 @@ NotGate::~NotGate() {
 Node* NotGate::clone() {
     return new NotGate();
 }
+
+bool NotGate::backPropagate() {
+    return !inputs[0]->backPropagate();
+}

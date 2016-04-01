@@ -17,6 +17,7 @@ public:
 	XorGate();
 	virtual ~XorGate();
     virtual Node* clone();
+    virtual bool backPropagate();
 private:
     static XorGate instance;
 };

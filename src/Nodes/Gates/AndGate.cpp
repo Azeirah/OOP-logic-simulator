@@ -23,3 +23,7 @@ AndGate::~AndGate() {
 Node* AndGate::clone() {
     return new AndGate();
 }
+
+bool AndGate::backPropagate() {
+    return inputs[0]->backPropagate() && inputs[1]->backPropagate();
+}

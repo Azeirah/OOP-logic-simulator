@@ -23,3 +23,7 @@ InputLowGate::~InputLowGate() {
 Node* InputLowGate::clone() {
     return new InputLowGate();
 }
+
+bool InputLowGate::backPropagate() {
+    return false;
+}

@@ -18,7 +18,7 @@ public:
 	OrGate();
 	virtual ~OrGate();
     virtual Node* clone();
-
+    virtual bool backPropagate();
 private:
     static OrGate instance;
 };

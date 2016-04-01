@@ -20,6 +20,7 @@ public:
 	virtual ~AndGate();
     virtual Node* clone();
 
+    virtual bool backPropagate();
 private:
     static AndGate instance;
 };

@@ -23,3 +23,9 @@ ProbeGate::~ProbeGate() {
 Node* ProbeGate::clone() {
     return new ProbeGate();
 }
+
+bool ProbeGate::backPropagate() {
+    bool value = inputs[0]->backPropagate();
+    cout << "Value on this probe is " << value << endl;
+    return value;
+}
