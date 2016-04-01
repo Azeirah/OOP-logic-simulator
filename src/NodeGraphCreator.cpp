@@ -25,7 +25,12 @@ void NodeGraphCreator::createNode(std::string name, std::string type) {
 }
 
 void NodeGraphCreator::createLink(string origin, vector<string> destinations) {
-	cout << origin << " naar " << endl;
+	cout << origin << " naar " <<  endl;
+	for (std::vector<string>::const_iterator i = destinations.begin(); i != destinations.end(); ++i)
+    std::cout << *i << ' ';
+		cout << endl;
+		cout << endl;
+
 
 }
 
