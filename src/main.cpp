@@ -1,7 +1,7 @@
 #include "Node.h"
 #include "NodeFactory.h"
 #include "Nodes/Gates/AndGate.h"
-#include "Parser.h"
+#include "Reader.h"
 
 #include <iostream>
 using namespace std;
