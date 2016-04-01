@@ -11,10 +11,13 @@
 #include "../LogicGate.h"
 
 class NotGate: public LogicGate {
+    NotGate(const char*);
 public:
 	NotGate();
 	virtual ~NotGate();
-	void printInfo();
+    virtual Node* clone();
+private:
+    static NotGate instance;
 };
 
 #endif /* NOTGATE_H_ */

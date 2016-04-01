@@ -11,13 +11,13 @@
 
 
 # compiler = g++
-CC = g++
+CC=g++
 # compiler flags
 # -g is debug symbols
 # this makes caching possible (only recompile changed files)
 # -Wall and -Wextra give extra warnings..
 # use C++14 standard, gives access to some nice additional features
-CC_FLAGS = -g -Wall -Wextra
+CC_FLAGS = -g -Wall -Wextra -std=c++11
 # Linker flags
 # -g is debug symbols
 LD_FLAGS = -g

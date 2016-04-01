@@ -6,18 +6,21 @@
 #include <iostream>
 using namespace std;
 
-int main (int argc, char* argv[]) {
+int main () {
+    Node* node1;
+    Node* node2;
+    Node* node3;
+    Node* node4;
 
-    Node* node = NodeFactory::get("AND");
-   	cout << "I am an node and my reference is " << &node << endl;
+    NodeFactory::get("AND", node1);
+    NodeFactory::get("NOT", node2);
+    NodeFactory::get("NOT", node3);
+    NodeFactory::get("NOT", node4);
 
-   	if (argv[1] != NULL) {
+    cout << "node 1 is " << node1 << endl;
+    cout << "node 2 is " << node2 << endl;
+    cout << "node 3 is " << node3 << endl;
+    cout << "node 4 is " << node4 << endl;
 
-   	Reader* mijnReader = new Reader(argv[1]);
-   	cout << mijnReader->nextLine() << endl;
-   	cout << mijnReader->nextLine() << endl;
-
-}
-   //node.printInfo();
 	return -1;
 }

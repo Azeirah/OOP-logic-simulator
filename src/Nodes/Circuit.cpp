@@ -16,3 +16,6 @@ Circuit::~Circuit() {
 	// TODO Auto-generated destructor stub
 }
 
+Node* Circuit::clone() {
+    return new Circuit();
+}

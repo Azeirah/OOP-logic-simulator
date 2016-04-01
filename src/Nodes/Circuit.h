@@ -14,6 +14,7 @@ class Circuit: public Node {
 public:
 	Circuit();
 	virtual ~Circuit();
+    virtual Node* clone();
 };
 
 #endif /* CIRCUIT_H_ */

@@ -16,3 +16,6 @@ EndNode::~EndNode() {
 	// TODO Auto-generated destructor stub
 }
 
+Node* EndNode::clone() {
+    return new EndNode();
+}

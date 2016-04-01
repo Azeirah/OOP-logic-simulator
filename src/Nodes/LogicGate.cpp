@@ -7,6 +7,10 @@
 
 #include "LogicGate.h"
 
+LogicGate::LogicGate( const char* szArg) : Node(szArg) {
+
+}
+
 LogicGate::LogicGate() {
 	// TODO Auto-generated constructor stub
 
@@ -16,3 +20,6 @@ LogicGate::~LogicGate() {
 	// TODO Auto-generated destructor stub
 }
 
+Node* LogicGate::clone() {
+    return new LogicGate();
+}
