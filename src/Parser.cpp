@@ -55,9 +55,8 @@ void Parser::parseFileLines(map<string,string> *nodes, map<string, vector<string
 	pair<map<string,string>::iterator, bool> ret_value;
 	bool at_nodes = true;
 
-	fileLine = filereader->nextLine();
-
 	while(filereader->hasNextLine()) { //!fileLine.empty()) { //reader returns empty string when done
+		fileLine = filereader->nextLine();
 		if(validLine(fileLine)) {
 			nodeStrings = parseLine(fileLine);
 			if(at_nodes){
@@ -71,8 +70,6 @@ void Parser::parseFileLines(map<string,string> *nodes, map<string, vector<string
 				edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType)));
 			}
 		}
-		fileLine = filereader->nextLine();
-
 	}
 
 	return;
