@@ -42,10 +42,10 @@ bool InputHighGate::validateOutputAmount() {
 
 bool InputHighGate::checkCircularDependency(int count, int maxCount, Node* node) {
 	bool ret;
-	if (count > maxCount)
+	if (count > maxCount) //check if max count is reached
 		return false;
-	for (auto const &output : node->outputs) {
-		ret = checkCircularDependency(count+1, maxCount, output);
+	for (auto const &output : node->outputs) { //loop through all outputs
+		ret = checkCircularDependency(count+1, maxCount, output); //do this function for each node
 		if(!ret)
 			return false;
 	}
