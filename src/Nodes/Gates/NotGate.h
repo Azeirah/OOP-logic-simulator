@@ -8,9 +8,9 @@
 #ifndef NOTGATE_H_
 #define NOTGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
-class NotGate: public LogicGate {
+class NotGate: public Node {
     NotGate(const char*);
 public:
 	NotGate();

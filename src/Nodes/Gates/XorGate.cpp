@@ -11,7 +11,7 @@ using namespace std;
 
 XorGate XorGate::instance("XOR");
 
-XorGate::XorGate( const char* szArg ) : LogicGate(szArg) {
+XorGate::XorGate( const char* szArg ) : Node(szArg) {
 }
 
 XorGate::XorGate() {

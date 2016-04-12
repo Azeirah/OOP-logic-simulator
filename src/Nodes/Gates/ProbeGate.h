@@ -8,10 +8,10 @@
 #ifndef ProbeGATE_H_
 #define ProbeGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
 
-class ProbeGate : public LogicGate {
+class ProbeGate : public Node {
 private:
     ProbeGate( const char* );
 

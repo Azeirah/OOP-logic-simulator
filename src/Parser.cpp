@@ -64,7 +64,7 @@ void Parser::parseFileLines(map<string,string> *nodes, map<string, vector<string
 				ret_value = nodes->insert(pair<string, string>(nodeStrings.nodeName, nodeStrings.nodeType));
 				at_nodes = ret_value.second;
 				if(!at_nodes){
-					edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType))); 
+					edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType)));
 				}
 			}
 			else{
@@ -79,10 +79,11 @@ void Parser::parseFileLines(map<string,string> *nodes, map<string, vector<string
 }
 
 bool Parser::validLine(string fileLine) {
-	if(!fileLine.empty() && fileLine.at(0) != '\r' && fileLine.at(0) != '\n' && fileLine.at(0) != '#') //ignore comments
-		return true;
-	else
-		return false;
+    return !fileLine.empty() && fileLine.at(0) != '\r' && fileLine.at(0) != '\n' && fileLine.at(0) != '#';
+	// if() //ignore comments
+	// 	return true;
+	// else
+	// 	return false;
 }
 
 vector<string> Parser::splitStringOn(char splitChar, string inputString){

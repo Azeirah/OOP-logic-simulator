@@ -10,7 +10,7 @@ using namespace std;
 
 OrGate OrGate::instance("OR");
 
-OrGate::OrGate( const char* szArg ) : LogicGate(szArg) {
+OrGate::OrGate( const char* szArg ) : Node(szArg) {
 
 }
 

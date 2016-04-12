@@ -12,7 +12,7 @@ using namespace std;
 
 NotGate NotGate::instance("NOT");
 
-NotGate::NotGate( const char* szArg ) : LogicGate(szArg) {
+NotGate::NotGate( const char* szArg ) : Node(szArg) {
 }
 
 NotGate::NotGate() {

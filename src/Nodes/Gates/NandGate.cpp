@@ -12,7 +12,7 @@ using namespace std;
 
 NandGate NandGate::instance("NAND");
 
-NandGate::NandGate(const char* szArg) : LogicGate(szArg) {
+NandGate::NandGate(const char* szArg) : Node(szArg) {
 }
 
 NandGate::NandGate() {

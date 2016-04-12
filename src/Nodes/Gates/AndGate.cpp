@@ -10,7 +10,7 @@ using namespace std;
 
 AndGate AndGate::instance("AND");
 
-AndGate::AndGate( const char* szArg ) : LogicGate(szArg) {
+AndGate::AndGate( const char* szArg ) : Node(szArg) {
 }
 
 AndGate::AndGate() {

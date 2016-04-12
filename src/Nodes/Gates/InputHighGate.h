@@ -8,10 +8,10 @@
 #ifndef INPUTHIGHGATE_H_
 #define INPUTHIGHGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
 
-class InputHighGate : public LogicGate {
+class InputHighGate : public Node {
 private:
     InputHighGate( const char* );
 
@@ -20,7 +20,7 @@ public:
 	virtual ~InputHighGate();
     virtual Node* clone();
     virtual bool backPropagate();
-    
+
 private:
     static InputHighGate instance;
 
