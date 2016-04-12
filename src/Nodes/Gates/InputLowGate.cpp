@@ -10,7 +10,7 @@ using namespace std;
 
 InputLowGate InputLowGate::instance("INPUT_LOW");
 
-InputLowGate::InputLowGate( const char* szArg ) : LogicGate(szArg) {
+InputLowGate::InputLowGate( const char* szArg ) : Node(szArg) {
 }
 
 InputLowGate::InputLowGate() {

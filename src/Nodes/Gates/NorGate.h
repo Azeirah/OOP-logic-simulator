@@ -8,9 +8,9 @@
 #ifndef NORGATE_H_
 #define NORGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
-class NorGate: public LogicGate {
+class NorGate: public Node {
 private:
     NorGate( const char* );
 public:

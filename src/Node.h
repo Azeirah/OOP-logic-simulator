@@ -12,6 +12,7 @@
 using namespace std;
 #include <vector>
 
+// TODO: ENUM
 #define VALID 						0
 #define INPUT_ERROR 				1
 #define OUTPUT_ERROR 				2

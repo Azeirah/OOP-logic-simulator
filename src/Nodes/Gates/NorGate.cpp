@@ -12,7 +12,7 @@ using namespace std;
 
 NorGate NorGate::instance("NOR");
 
-NorGate::NorGate( const char* szArg) : LogicGate(szArg) {
+NorGate::NorGate( const char* szArg) : Node(szArg) {
 
 }
 

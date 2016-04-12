@@ -8,9 +8,9 @@
 #ifndef XORGATE_H_
 #define XORGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
-class XorGate: public LogicGate {
+class XorGate: public Node {
 private:
     XorGate( const char* );
 public:

@@ -8,10 +8,10 @@
 #ifndef INPUTLOWGATE_H_
 #define INPUTLOWGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
 
-class InputLowGate : public LogicGate {
+class InputLowGate : public Node {
 private:
     InputLowGate( const char* );
 

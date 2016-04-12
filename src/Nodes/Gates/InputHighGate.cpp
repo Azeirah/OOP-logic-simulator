@@ -10,7 +10,7 @@ using namespace std;
 
 InputHighGate InputHighGate::instance("INPUT_HIGH");
 
-InputHighGate::InputHighGate( const char* szArg ) : LogicGate(szArg) {
+InputHighGate::InputHighGate( const char* szArg ) : Node(szArg) {
 }
 
 InputHighGate::InputHighGate() {

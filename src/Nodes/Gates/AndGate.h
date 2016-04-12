@@ -8,10 +8,10 @@
 #ifndef ANDGATE_H_
 #define ANDGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
 
-class AndGate : public LogicGate {
+class AndGate : public Node {
 private:
     AndGate( const char* );
 

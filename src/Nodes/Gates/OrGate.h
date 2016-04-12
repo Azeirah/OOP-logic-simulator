@@ -8,9 +8,9 @@
 #ifndef ORGATE_H_
 #define ORGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
-class OrGate: public LogicGate {
+class OrGate: public Node {
 private:
     OrGate( const char* );
 

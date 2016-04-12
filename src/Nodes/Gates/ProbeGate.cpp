@@ -10,7 +10,7 @@ using namespace std;
 
 ProbeGate ProbeGate::instance("PROBE");
 
-ProbeGate::ProbeGate( const char* szArg ) : LogicGate(szArg) {
+ProbeGate::ProbeGate( const char* szArg ) : Node(szArg) {
 }
 
 ProbeGate::ProbeGate() {

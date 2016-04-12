@@ -8,9 +8,9 @@
 #ifndef NANDGATE_H_
 #define NANDGATE_H_
 
-#include "../LogicGate.h"
+#include "../../Node.h"
 
-class NandGate: public LogicGate {
+class NandGate: public Node {
 private:
     NandGate( const char* );
 public:
