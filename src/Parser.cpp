@@ -9,7 +9,7 @@
 #include "NodeGraphCreator.h"
 
 Parser::Parser(string filename) {
-	filereader =  new Reader(filename);
+	filereader =  new Reader(filename); //create reader
 }
 
 Parser::~Parser() {
@@ -18,14 +18,15 @@ Parser::~Parser() {
 struct nodePair Parser::parseLine(string inputLine) {
 	struct nodePair nodeInformation;
 
-	nodeInformation = splitLine(inputLine);
+	nodeInformation = splitLine(inputLine); //split line into pair
 
 	return nodeInformation;
 }
 
 struct nodePair Parser::splitLine(string inputString) {
 	struct nodePair nodeInformation;
-	//set chars in array and check in loop
+
+	//remove unwanted chars and split
 	nodeInformation.nodeName = inputString.substr(0, inputString.find(':'));
 	nodeInformation.nodeName = removeCharsFromString(nodeInformation.nodeName, ' ');
 	nodeInformation.nodeName = removeCharsFromString(nodeInformation.nodeName, ':');
@@ -44,7 +45,7 @@ struct nodePair Parser::splitLine(string inputString) {
 string Parser::removeCharsFromString(string inputString, char charToRemove) {
 	string returnString = inputString;
 
-	returnString.erase(std::remove(returnString.begin(), returnString.end(), charToRemove), returnString.end());
+	returnString.erase(std::remove(returnString.begin(), returnString.end(), charToRemove), returnString.end()); //remove char from string
 
 	return returnString;
 }
@@ -55,19 +56,19 @@ void Parser::parseFileLines(map<string,string> *nodes, map<string, vector<string
 	pair<map<string,string>::iterator, bool> ret_value;
 	bool at_nodes = true;
 
-	while(filereader->hasNextLine()) { //!fileLine.empty()) { //reader returns empty string when done
-		fileLine = filereader->nextLine();
-		if(validLine(fileLine)) {
-			nodeStrings = parseLine(fileLine);
-			if(at_nodes){
-				ret_value = nodes->insert(pair<string, string>(nodeStrings.nodeName, nodeStrings.nodeType));
+	while(filereader->hasNextLine()) { //check for next line
+		fileLine = filereader->nextLine(); // read line
+		if(validLine(fileLine)) { //check if line with info
+			nodeStrings = parseLine(fileLine); //parse
+			if(at_nodes){ //make difference between nodes and edges
+				ret_value = nodes->insert(pair<string, string>(nodeStrings.nodeName, nodeStrings.nodeType)); //insert
 				at_nodes = ret_value.second;
 				if(!at_nodes){
-					edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType)));
+					edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType))); //insert
 				}
 			}
 			else{
-				edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType)));
+				edges->insert(pair<string, vector<string> >(nodeStrings.nodeName, splitStringOn(',' ,nodeStrings.nodeType))); //insert
 			}
 		}
 	}
@@ -89,12 +90,12 @@ vector<string> Parser::splitStringOn(char splitChar, string inputString){
 	string temp_token;
 	vector<string> stringVector;
 
-	while ((pos = temp_inputString.find(splitChar)) != string::npos) {
+	while ((pos = temp_inputString.find(splitChar)) != string::npos) { //find all split chars
 		temp_token = temp_inputString.substr(0, pos);
-		stringVector.push_back(temp_token);
+		stringVector.push_back(temp_token); //add to vector
 		temp_inputString.erase(0, pos + 1);
 	}
-	if(!temp_inputString.empty()){
+	if(!temp_inputString.empty()){ //add last item
 		stringVector.push_back(temp_inputString);
 	}
 	return stringVector;

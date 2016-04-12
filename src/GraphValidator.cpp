@@ -19,10 +19,10 @@ GraphValidator::~GraphValidator() {
 void GraphValidator::validateGraph(std::map<std::string, Node*> nodeMap) {
 	std::map<std::string, Node*>::iterator it;
 	int ret;
-	for(it = nodeMap.begin(); it != nodeMap.end(); it++ ) {
-		int size = nodeMap.size();
-		ret = it->second->validateInputOutput(size);
-		switch (ret) {
+	for(it = nodeMap.begin(); it != nodeMap.end(); it++ ) { //iterate over all node's
+		int size = nodeMap.size(); //get size, for feedback loop
+		ret = it->second->validateInputOutput(size); //validate the actual node
+		switch (ret) { //handle the error
 			case VALID: continue;
 				break;
 			case INPUT_ERROR: cout << "Warning: Amount of input error in Node " << it->first << endl;
