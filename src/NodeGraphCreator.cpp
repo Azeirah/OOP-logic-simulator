@@ -10,28 +10,35 @@
 #include "NodeFactory.h"
 
 NodeGraphCreator::NodeGraphCreator() {
-	// TODO Auto-generated constructor stub
 }
 
 NodeGraphCreator::~NodeGraphCreator() {
-	// TODO Auto-generated destructor stub
 }
 
+
+// Retreives and saves a copy from the Node of the type defined in the argument
 void NodeGraphCreator::createNode(std::string name, std::string type) {
-	Node* node;
+	Node* node; //As the NodeFactory is void, we pass it a pointer to work with
 	NodeFactory::get(type, node);
 	nodeMap[name] = node;
+
+	// We need to define the endpoints for our backwards propegation
+	// Store all of them in a map
 	if (type == "PROBE") {
 		endNodeMap[name] = node;
 	}
 }
 
+// This method is used to assign neighbours to a certain node
+// As the text file syntax always uses "ORIGIN:	DESTINATION1,DESTINATION2;"
+// we can always assume the destinations are outputs for the origin
+// and each destination treats the origin as input
 void NodeGraphCreator::createLink(string origin, vector<string> destinations) {
-	Node* originPointer = nodeMap[origin];
+	Node* originPointer = nodeMap[origin]; // Find the origin Node
 	vector<Node*> destinationPointers;
 	
 	for (std::vector<string>::const_iterator i = destinations.begin(); i != destinations.end(); ++i) {
-		Node* destination = nodeMap[*i];
+		Node* destination = nodeMap[*i]; // Retreive the current destination node
 		if (originPointer != nullptr) {
 			originPointer->addOutput(destination);
 		}
@@ -44,6 +51,9 @@ void NodeGraphCreator::createLink(string origin, vector<string> destinations) {
 
 }
 
+// The file Parser returns a map of Nodes by Name and Type (string) and a map of Links
+// First we initialize all the Nodes
+// Afterwards we will link them by setting their neighbours
 std::map<std::string, Node*> NodeGraphCreator::parseParserOutput(map<string,string> *nodes, map<string, vector<string> > *edges) {
 	//Nodes
 	for (std::map<string, string>::iterator it = nodes->begin(); it != nodes->end(); it++) {
@@ -58,6 +68,7 @@ std::map<std::string, Node*> NodeGraphCreator::parseParserOutput(map<string,stri
 	return nodeMap;
 }
 
+//For debug purpuse
 void NodeGraphCreator::showStoredNodes() {
 	for (std::map<std::string, Node*>::iterator it = nodeMap.begin(); it != nodeMap.end(); it++) {
 		cout << it->first << " op adres " << it->second << endl;
